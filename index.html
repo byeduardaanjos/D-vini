@@ -15,7 +15,7 @@
 <body>
   <header class="topbar">
     <a class="logo-text" href="#inicio" aria-label="Barbearia D'Vini"><small>BARBEARIA D'</small><strong>Vini</strong></a>
-    <button class="menu-btn" id="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <button class="menu-btn" id="menu" aria-label="Abrir menu"><i data-lucide="menu"></i></button>
     <nav id="nav"><a href="#servicos">Serviços</a><a href="#trabalhos">Trabalhos</a><a href="#sobre">Sobre nós</a><a href="#localizacao">Localização</a></nav>
   </header>
 
@@ -26,10 +26,10 @@
         <p class="eyebrow">“MAIS QUE UM CORTE,<br>UMA EXPERIÊNCIA.”</p>
         <h1>Seu estilo<br><em>em boas mãos.</em></h1>
         <p class="hero-text">Cortes modernos, atendimento personalizado e um ambiente feito para você.</p>
-        <button class="primary" data-open-booking><span>▣</span> Agendar horário</button>
-        <a class="secondary" href="#servicos">Ver serviços <span>⌄</span></a>
+        <button class="primary" data-open-booking><i data-lucide="calendar-days"></i>Agendar horário</button>
+        <a class="secondary" href="#servicos">Ver serviços <i data-lucide="chevron-down"></i></a>
       </div>
-      <a class="scroll" href="#servicos"><span>◉</span>Role para baixo</a>
+      <a class="scroll" href="#servicos"><i data-lucide="mouse"></i>Role para baixo</a>
     </section>
 
     <section class="section services" id="servicos">
@@ -54,34 +54,40 @@
         <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=88" alt="Acabamento de corte">
         <img src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=600&q=88" alt="Barba alinhada">
       </div>
-      <a class="outline-btn" href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer">Ver mais fotos <span>→</span></a>
+      <a class="outline-btn" href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer">Ver mais fotos <i data-lucide="arrow-right"></i></a>
     </section>
 
     <section class="section about" id="sobre">
       <div class="section-title"><h2>Sobre <em>nós</em></h2></div>
       <p class="about-copy">Um espaço pensado para quem busca mais do que um corte: estilo, cuidado e atendimento de qualidade em um ambiente moderno e acolhedor.</p>
-      <div class="features"><div><span>♕</span><p>Atendimento<br>personalizado</p></div><div><span>✂</span><p>Profissionais<br>qualificados</p></div><div><span>☆</span><p>Ambiente<br>moderno</p></div></div>
-      <div class="cta-card"><h3>Pronto para renovar<br>o seu visual?</h3><p>Agende agora e garanta seu horário.</p><button class="primary" data-open-booking>◉ Agendar pelo WhatsApp <span>→</span></button></div>
+      <div class="features">
+        <div><i data-lucide="crown"></i><p>Atendimento<br>personalizado</p></div>
+        <div><i data-lucide="scissors"></i><p>Profissionais<br>qualificados</p></div>
+        <div><i data-lucide="star"></i><p>Ambiente<br>moderno</p></div>
+      </div>
+      <div class="cta-card"><h3>Pronto para renovar<br>o seu visual?</h3><p>Agende agora e garanta seu horário.</p><button class="primary" data-open-booking><i data-lucide="message-circle"></i>Agendar pelo WhatsApp<i data-lucide="arrow-right"></i></button></div>
     </section>
 
     <section class="section location" id="localizacao">
       <div class="section-title"><h2>Localização</h2><p>Estamos prontos para te receber.</p></div>
-      <div class="map-card"><div class="pin">●</div><h3>Barbearia D'Vini</h3><p>R. Tomaz Domingos da Silveira, 196<br>São Sebastião, Palhoça - SC<br>88136-000</p></div>
-      <a class="outline-btn" href="https://maps.app.goo.gl/rpTWc2T2RkhYW5aT9?g_st=ic" target="_blank" rel="noreferrer">⌖ Ver no Google Maps <span>→</span></a>
+      <div class="map-card"><i class="pin" data-lucide="map-pin"></i><h3>Barbearia D'Vini</h3><p>R. Tomaz Domingos da Silveira, 196<br>São Sebastião, Palhoça - SC<br>88136-000</p></div>
+      <a class="outline-btn" href="https://maps.app.goo.gl/rpTWc2T2RkhYW5aT9?g_st=ic" target="_blank" rel="noreferrer"><i data-lucide="map-pin"></i>Ver no Google Maps<i data-lucide="arrow-right"></i></a>
       <h3 class="hours-title">Horários de Atendimento</h3>
       <div class="hours-card"><div><span>Segunda - Sexta</span><strong>09h às 19h</strong></div><div><span>Sábado</span><strong>08h às 15h</strong></div><div><span>Domingo</span><strong>Fechado</strong></div></div>
-      <div class="wa-card"><div><h3>Dúvidas ou quer agendar<br>pelo WhatsApp?</h3><p>Fale conosco agora mesmo.</p></div><button data-open-booking aria-label="Agendar pelo WhatsApp">◉</button></div>
+      <div class="wa-card"><div><h3>Dúvidas ou quer agendar<br>pelo WhatsApp?</h3><p>Fale conosco agora mesmo.</p></div><button data-open-booking aria-label="Agendar pelo WhatsApp"><i data-lucide="message-circle"></i></button></div>
     </section>
   </main>
 
   <footer>
     <div class="footer-logo"><small>BARBEARIA D'</small><strong>Vini</strong></div>
     <p>Estilo, cuidado e mais confiança para o seu dia.</p>
-    <div class="social"><a href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer">◎</a><span>♪</span></div>
+    <div class="social"><a href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer" aria-label="Instagram"><i data-lucide="instagram"></i></a></div>
     <hr><p class="copy">© 2026 Barbearia D'Vini<br>Todos os direitos reservados.</p>
   </footer>
 
-  <div class="modal" id="booking" aria-hidden="true"><div class="dialog"><button class="close" id="close">×</button><p class="mini">AGENDAMENTO</p><h2>Como deseja agendar?</h2><button class="choice">WhatsApp <span>→</span></button><button class="choice">Agenda online <span>→</span></button><small>Opções demonstrativas para apresentação do projeto.</small></div></div>
+  <div class="modal" id="booking" aria-hidden="true"><div class="dialog"><button class="close" id="close" aria-label="Fechar"><i data-lucide="x"></i></button><p class="mini">AGENDAMENTO</p><h2>Como deseja agendar?</h2><button class="choice"><i data-lucide="message-circle"></i>WhatsApp <i data-lucide="arrow-right"></i></button><button class="choice"><i data-lucide="calendar-days"></i>Agenda online <i data-lucide="arrow-right"></i></button><small>Opções demonstrativas para apresentação do projeto.</small></div></div>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
