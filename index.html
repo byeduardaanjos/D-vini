@@ -17,7 +17,7 @@
   <header class="topbar">
     <a class="brand" href="#inicio" aria-label="Barbearia D'Vini"><span>BARBEARIA D'</span><strong>VINI</strong></a>
     <button class="menu-btn" id="menu" aria-label="Abrir menu"><i class="ph ph-list"></i></button>
-    <nav id="nav"><a href="#servicos">Serviços</a><a href="#trabalhos">Trabalhos</a><a href="#localizacao">Localização</a></nav>
+    <nav id="nav"><a href="#servicos">Serviços</a><a href="#planos">Planos</a><a href="#trabalhos">Trabalhos</a><a href="#localizacao">Localização</a></nav>
   </header>
 
   <main>
@@ -35,7 +35,7 @@
     </section>
 
     <section class="section services" id="servicos">
-      <div class="section-head"><p class="eyebrow dark">SERVIÇOS</p><h2>O essencial,<br><em>bem feito.</em></h2></div>
+      <div class="section-head"><p class="eyebrow">SERVIÇOS</p><h2>O essencial,<br><em>bem feito.</em></h2></div>
       <div class="service-list">
         <button data-open-booking><span><b>Corte tradicional</b><small>Acabamento preciso e visual alinhado.</small></span><strong>R$ 40</strong><i class="ph ph-arrow-up-right"></i></button>
         <button data-open-booking><span><b>Degradê</b><small>Transição limpa e finalização personalizada.</small></span><strong>R$ 45</strong><i class="ph ph-arrow-up-right"></i></button>
@@ -44,7 +44,28 @@
         <button data-open-booking><span><b>Corte infantil</b><small>Atendimento cuidadoso e confortável.</small></span><strong>R$ 35</strong><i class="ph ph-arrow-up-right"></i></button>
         <button data-open-booking><span><b>Sobrancelha</b><small>Ajuste discreto para complementar o corte.</small></span><strong>R$ 10</strong><i class="ph ph-arrow-up-right"></i></button>
       </div>
-      <p class="demo-note">Valores demonstrativos para apresentação do projeto.</p>
+      <p class="demo-note light-note">Valores demonstrativos para apresentação do projeto.</p>
+    </section>
+
+    <section class="section plans" id="planos">
+      <div class="section-head"><p class="eyebrow">PLANOS</p><h2>Mais cuidado,<br><em>mais vantagem.</em></h2></div>
+      <div class="plans-grid">
+        <article class="plan-card">
+          <div class="plan-top"><span>ESSENCIAL</span><i class="ph ph-scissors"></i></div>
+          <h3>Plano Corte</h3>
+          <p class="plan-price"><strong>R$ 140</strong><small>/ 30 dias</small></p>
+          <ul><li><i class="ph ph-check"></i>4 cortes no período</li><li><i class="ph ph-check"></i>1 corte por atendimento</li><li><i class="ph ph-check"></i>Agendamento facilitado</li></ul>
+          <button class="plan-btn" data-open-booking>Quero este plano <i class="ph ph-arrow-right"></i></button>
+        </article>
+        <article class="plan-card featured">
+          <div class="plan-top"><span>COMPLETO</span><i class="ph ph-crown"></i></div>
+          <h3>Corte + Barba</h3>
+          <p class="plan-price"><strong>R$ 220</strong><small>/ 30 dias</small></p>
+          <ul><li><i class="ph ph-check"></i>4 cortes no período</li><li><i class="ph ph-check"></i>2 serviços de barba</li><li><i class="ph ph-check"></i>Prioridade no agendamento</li></ul>
+          <button class="plan-btn" data-open-booking>Quero este plano <i class="ph ph-arrow-right"></i></button>
+        </article>
+      </div>
+      <p class="demo-note light-note">Planos e valores demonstrativos para apresentação do projeto.</p>
     </section>
 
     <section class="section work" id="trabalhos">
@@ -58,7 +79,7 @@
     </section>
 
     <section class="location" id="localizacao">
-      <div class="location-copy"><p class="eyebrow">LOCALIZAÇÃO</p><h2>São Sebastião,<br><em>Palhoça.</em></h2><p class="address">R. Tomaz Domingos da Silveira, 196<br>São Sebastião · Palhoça — SC · 88136-000</p><a class="map-btn" href="https://maps.app.goo.gl/rpTWc2T2RkhYW5aT9?g_st=ic" target="_blank" rel="noreferrer"><i class="ph ph-map-pin"></i>Abrir no Google Maps<i class="ph ph-arrow-up-right"></i></a><a class="map-btn insta-btn" href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer"><i class="ph ph-instagram-logo"></i>Ver Instagram<i class="ph ph-arrow-up-right"></i></a></div>
+      <div class="location-copy"><p class="eyebrow">LOCALIZAÇÃO</p><h2>São Sebastião,<br><em>Palhoça.</em></h2><p class="address">R. Tomaz Domingos da Silveira, 196<br>São Sebastião · Palhoça — SC · 88136-000</p><div class="location-actions"><a class="map-btn" href="https://maps.app.goo.gl/rpTWc2T2RkhYW5aT9?g_st=ic" target="_blank" rel="noreferrer"><i class="ph ph-map-pin"></i>Abrir no Google Maps<i class="ph ph-arrow-up-right"></i></a><a class="map-btn insta-btn" href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer"><i class="ph ph-instagram-logo"></i>Ver Instagram<i class="ph ph-arrow-up-right"></i></a></div></div>
       <div class="hours-panel"><p class="panel-label">HORÁRIOS</p><div><span>Segunda — Sexta</span><strong>09h — 19h</strong></div><div><span>Sábado</span><strong>08h — 15h</strong></div><div><span>Domingo</span><strong>Fechado</strong></div><button class="primary" data-open-booking><i class="ph ph-whatsapp-logo"></i>Agendar horário</button></div>
     </section>
   </main>
