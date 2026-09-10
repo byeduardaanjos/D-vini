@@ -1,0 +1,22 @@
+:root{--bg:#090909;--panel:#101010;--panel2:#151515;--gold:#c8a25e;--gold2:#e0bd79;--text:#f4f1eb;--muted:#aaa49a;--line:rgba(255,255,255,.09)}
+body{background:var(--bg)!important;color:var(--text)!important}
+.services{background:#0b0b0b!important;color:var(--text)!important}
+.eyebrow.dark{color:var(--gold2)!important}
+.service-list{border-top:1px solid var(--line)!important}
+.service-list button{color:var(--text)!important;border-bottom:1px solid var(--line)!important;padding:18px 0!important}
+.service-list small{color:var(--muted)!important}
+.service-list strong{color:var(--gold2)!important}
+.section-head h2,.location h2,.hero h1,.dialog h2{color:var(--text)!important}
+.work{background:#0d0d0d!important}
+.gallery{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}
+.gallery figure{margin:0!important;overflow:hidden!important;border-radius:8px!important;background:#151515!important;aspect-ratio:1/1.12!important}
+.gallery figure:first-child{grid-column:auto!important}
+.gallery img,.gallery figure:first-child img{width:100%!important;height:100%!important;min-height:0!important;object-fit:cover!important;filter:none!important;transform:none!important}
+.gallery figcaption{position:absolute!important;left:10px!important;bottom:9px!important;padding:5px 8px!important;border-radius:999px!important;background:rgba(0,0,0,.55)!important;backdrop-filter:blur(6px)!important;color:#fff!important;font:600 9px 'Manrope',sans-serif!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+.light-note{color:#777!important}
+.location,.hours-panel{background:#0a0a0a!important}
+.hours-panel{border-top:1px solid var(--line)!important}
+.map-btn,.primary{border-radius:8px!important}
+.primary{background:var(--gold2)!important;border-color:var(--gold2)!important;box-shadow:none!important}
+.topbar{background:rgba(8,8,8,.92)!important}
+@media(min-width:860px){.gallery{grid-template-columns:repeat(3,1fr)!important}.gallery figure{aspect-ratio:.9/1!important}.gallery figure img,.gallery figure:first-child img{height:100%!important}}
