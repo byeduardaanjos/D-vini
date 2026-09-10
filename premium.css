@@ -9,4 +9,13 @@
 .plan-card.featured{border-color:rgba(217,187,122,.24)!important}
 .plan-btn{border-radius:999px!important;border-color:rgba(217,187,122,.28)!important;background:rgba(217,187,122,.045)!important}
 .menu-btn{background:rgba(255,255,255,.035)!important;border:1px solid rgba(255,255,255,.11)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important}
-@media(max-width:859px){.topbar{height:74px!important;padding:0 18px!important}.brand-logo{height:44px!important;max-width:118px!important}.topbar nav{background:rgba(10,10,10,.82)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important;border-bottom:1px solid rgba(255,255,255,.08)!important}}
+.info-section{grid-template-columns:1fr!important;background:#0b0b0b!important}
+.info-main,.info-hours{background:#0b0b0b!important}
+.info-main{padding-bottom:22px!important}
+.info-hours{padding-top:18px!important;border-top:0!important;border-left:0!important}
+.info-hours:before{content:"Horários";display:block;margin:0 0 18px;color:var(--gold-soft);font-family:'Sora',sans-serif;font-size:18px;font-weight:600;letter-spacing:-.02em}
+.info-hours>.info-icon,.info-hours>.info-label{display:none!important}
+.hours-list{margin-top:0!important;border-top:1px solid rgba(255,255,255,.07)!important}
+.hours-list div{padding:17px 0!important}
+.premium-action{margin-top:24px!important}
+@media(max-width:859px){.topbar{height:74px!important;padding:0 18px!important}.brand-logo{height:44px!important;max-width:118px!important}.topbar nav{background:rgba(10,10,10,.82)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important;border-bottom:1px solid rgba(255,255,255,.08)!important}.info-main{padding-bottom:14px!important}.info-hours{padding-top:10px!important}}
