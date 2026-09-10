@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Agendamento | Barbearia D'Vini</title>
+  <link rel="icon" href="assets/vini-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="agendamento.css" />
+</head>
+<body>
+  <header class="booking-header">
+    <a class="back" href="index.html"><i data-lucide="arrow-left"></i><span>Voltar</span></a>
+    <a class="booking-brand" href="index.html" aria-label="Barbearia D'Vini"><img src="assets/vini-logo.png" alt="Logo Barbearia D'Vini"></a>
+    <span class="demo-pill">DEMO</span>
+  </header>
+
+  <main class="booking-page">
+    <section class="booking-intro">
+      <p class="eyebrow">AGENDAMENTO</p>
+      <h1>Reserve seu <span>horário.</span></h1>
+      <p>Escolha o serviço, o dia e um horário para visualizar como funcionará a experiência de agendamento.</p>
+    </section>
+
+    <section class="booking-card">
+      <div class="step">
+        <div class="step-title"><span>01</span><div><small>SERVIÇO</small><h2>O que você quer fazer?</h2></div></div>
+        <div class="service-options" id="services">
+          <button class="option active" data-service="Corte tradicional" data-price="R$ 40"><span><strong>Corte tradicional</strong><small>Acabamento preciso e visual alinhado</small></span><b>R$ 40</b><i data-lucide="check"></i></button>
+          <button class="option" data-service="Degradê" data-price="R$ 45"><span><strong>Degradê</strong><small>Transição limpa e finalização personalizada</small></span><b>R$ 45</b><i data-lucide="check"></i></button>
+          <button class="option" data-service="Barba" data-price="R$ 30"><span><strong>Barba</strong><small>Desenho, alinhamento e acabamento</small></span><b>R$ 30</b><i data-lucide="check"></i></button>
+          <button class="option" data-service="Corte + barba" data-price="R$ 65"><span><strong>Corte + barba</strong><small>Experiência completa</small></span><b>R$ 65</b><i data-lucide="check"></i></button>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-title"><span>02</span><div><small>DATA</small><h2>Escolha o dia</h2></div></div>
+        <input class="date-field" id="booking-date" type="date" />
+      </div>
+
+      <div class="step">
+        <div class="step-title"><span>03</span><div><small>HORÁRIO</small><h2>Escolha um horário</h2></div></div>
+        <div class="time-options" id="times">
+          <button data-time="09:00">09:00</button><button data-time="10:00">10:00</button><button data-time="11:30">11:30</button><button data-time="14:00">14:00</button><button data-time="15:30">15:30</button><button data-time="17:00">17:00</button><button data-time="18:30">18:30</button>
+        </div>
+      </div>
+
+      <div class="summary">
+        <div><small>SEU AGENDAMENTO</small><strong id="summary-service">Corte tradicional</strong><span id="summary-date">Escolha a data</span><span id="summary-time">Escolha o horário</span></div>
+        <span class="summary-price" id="summary-price">R$ 40</span>
+      </div>
+
+      <a class="whatsapp-btn" id="whatsapp" href="#" target="_blank" rel="noreferrer"><i data-lucide="message-circle"></i><span>Continuar no WhatsApp</span><i data-lucide="arrow-up-right"></i></a>
+      <p class="demo-note">Agendamento demonstrativo. O número oficial da barbearia será configurado na versão final.</p>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      if(window.lucide) lucide.createIcons();
+      let service='Corte tradicional', price='R$ 40', time='';
+      const serviceText=document.getElementById('summary-service');
+      const priceText=document.getElementById('summary-price');
+      const dateText=document.getElementById('summary-date');
+      const timeText=document.getElementById('summary-time');
+      const dateInput=document.getElementById('booking-date');
+      const whatsapp=document.getElementById('whatsapp');
+      const today=new Date(); today.setDate(today.getDate()+1); dateInput.min=today.toISOString().split('T')[0];
+      const refresh=()=>{
+        const date=dateInput.value ? new Date(dateInput.value+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'}) : 'Escolha a data';
+        serviceText.textContent=service; priceText.textContent=price; dateText.textContent=date; timeText.textContent=time||'Escolha o horário';
+        const msg=`Olá! Gostaria de agendar na Barbearia do Vini.%0A%0AServiço: ${service}%0AData: ${dateInput.value||'a combinar'}%0AHorário: ${time||'a combinar'}%0A%0APoderia confirmar a disponibilidade?`;
+        whatsapp.href='https://wa.me/?text='+msg;
+      };
+      document.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.option').forEach(x=>x.classList.remove('active'));btn.classList.add('active');service=btn.dataset.service;price=btn.dataset.price;refresh()}));
+      document.querySelectorAll('[data-time]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-time]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');time=btn.dataset.time;refresh()}));
+      dateInput.addEventListener('change',refresh); refresh();
+    });
+  </script>
+</body>
+</html>
