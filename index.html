@@ -3,67 +3,85 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Apresentação visual da Barbearia do Vini em Palhoça, SC." />
+  <meta name="theme-color" content="#080808" />
+  <meta name="description" content="Barbearia do Vini em São Sebastião, Palhoça - SC." />
   <meta name="robots" content="noindex,nofollow" />
-  <title>Barbearia do Vini | Do tradicional ao moderno</title>
+  <title>Barbearia D'Vini</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
-    <a class="brand" href="#inicio" aria-label="Barbearia do Vini"><small>BARBEARIA D'</small><strong>Vini</strong></a>
-    <nav id="nav"><a href="#servicos">Serviços</a><a href="#trabalhos">Trabalhos</a><a href="#localizacao">Localização</a></nav>
-    <button class="book header-book" data-open-booking>Agendar</button>
-    <button class="menu" id="menu" aria-label="Abrir menu">☰</button>
+  <header class="topbar">
+    <a class="logo-text" href="#inicio" aria-label="Barbearia D'Vini"><small>BARBEARIA D'</small><strong>Vini</strong></a>
+    <button class="menu-btn" id="menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <nav id="nav"><a href="#servicos">Serviços</a><a href="#trabalhos">Trabalhos</a><a href="#sobre">Sobre nós</a><a href="#localizacao">Localização</a></nav>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <div class="hero-bg"></div><div class="hero-shade"></div>
-      <div class="hero-content">
-        <p class="eyebrow">SÃO SEBASTIÃO · PALHOÇA</p>
-        <h1>Do tradicional<br><em>ao moderno.</em></h1>
-        <p class="lead">Estilo, presença e cuidado em cada detalhe.</p>
-        <div class="actions"><button class="book" data-open-booking>Agendar horário</button><a class="ghost" href="#servicos">Ver serviços</a></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">“MAIS QUE UM CORTE,<br>UMA EXPERIÊNCIA.”</p>
+        <h1>Seu estilo<br><em>em boas mãos.</em></h1>
+        <p class="hero-text">Cortes modernos, atendimento personalizado e um ambiente feito para você.</p>
+        <button class="primary" data-open-booking><span>▣</span> Agendar horário</button>
+        <a class="secondary" href="#servicos">Ver serviços <span>⌄</span></a>
       </div>
-      <div class="hero-hours"><span>SEG–SEX · 09h–19h</span><span>SÁB · 08h–15h</span></div>
+      <a class="scroll" href="#servicos"><span>◉</span>Role para baixo</a>
     </section>
 
-    <section class="services" id="servicos">
-      <div class="section-title"><p>Serviços</p><h2>Escolha seu estilo.</h2><small>Valores fictícios para demonstração visual do projeto.</small></div>
+    <section class="section services" id="servicos">
+      <div class="section-title"><h2>Nossos <em>Serviços</em></h2><p>Qualidade em cada detalhe.</p></div>
       <div class="service-grid">
-        <article><span>01</span><h3>Corte Tradicional</h3><p>Corte clássico com acabamento preciso e visual alinhado.</p><strong>R$ 40</strong></article>
-        <article><span>02</span><h3>Degradê</h3><p>Transição suave e moderna com finalização personalizada.</p><strong>R$ 45</strong></article>
-        <article><span>03</span><h3>Barba</h3><p>Desenho, alinhamento e acabamento para valorizar o rosto.</p><strong>R$ 30</strong></article>
-        <article><span>04</span><h3>Corte + Barba</h3><p>Combinação completa para renovar o visual em uma sessão.</p><strong>R$ 65</strong></article>
-        <article><span>05</span><h3>Corte Infantil</h3><p>Atendimento cuidadoso e confortável para os pequenos.</p><strong>R$ 35</strong></article>
-        <article><span>06</span><h3>Sobrancelha</h3><p>Ajuste discreto para complementar o acabamento do corte.</p><strong>R$ 10</strong></article>
+        <article><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=350&q=84" alt="Corte tradicional"><div><h3>Corte Tradicional</h3><p>Corte clássico com acabamento preciso e visual alinhado.</p><strong>R$ 40</strong></div></article>
+        <article><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=350&q=84" alt="Corte degradê"><div><h3>Degradê</h3><p>Transição suave e moderna com finalização personalizada.</p><strong>R$ 45</strong></div></article>
+        <article><img src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=350&q=84" alt="Barba"><div><h3>Barba</h3><p>Desenho, alinhamento e acabamento para valorizar o seu rosto.</p><strong>R$ 30</strong></div></article>
+        <article><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=350&q=84" alt="Corte e barba"><div><h3>Corte + Barba</h3><p>Combinação completa para renovar o visual.</p><strong>R$ 65</strong></div></article>
+        <article><img src="https://images.unsplash.com/photo-1593702288056-fc0cfdbca9ee?auto=format&fit=crop&w=350&q=84" alt="Corte infantil"><div><h3>Corte Infantil</h3><p>Atendimento cuidadoso e confortável para os pequenos.</p><strong>R$ 35</strong></div></article>
+        <article><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=350&q=84" alt="Sobrancelha"><div><h3>Sobrancelha</h3><p>Ajuste discreto para complementar o visual.</p><strong>R$ 10</strong></div></article>
       </div>
     </section>
 
-    <section class="work" id="trabalhos">
-      <div class="section-title dark"><p>Trabalhos</p><h2>Referências de estilo.</h2><a href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer">Ver Instagram →</a></div>
-      <div class="gallery">
-        <figure><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1000&q=85" alt="Corte masculino"><figcaption>Degradê</figcaption></figure>
-        <figure><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=1000&q=85" alt="Barbeiro finalizando corte"><figcaption>Acabamento</figcaption></figure>
-        <figure><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1000&q=85" alt="Barbearia"><figcaption>Experiência</figcaption></figure>
+    <section class="section work" id="trabalhos">
+      <div class="section-title"><h2>Nossos <em>Trabalhos</em></h2><p>Estilo real, resultado real.</p></div>
+      <div class="work-grid">
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=88" alt="Trabalho de corte masculino">
+        <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=88" alt="Trabalho de degradê masculino">
+        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=600&q=88" alt="Trabalho em barbearia">
+        <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=88" alt="Barbearia masculina">
+        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=88" alt="Acabamento de corte">
+        <img src="https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=600&q=88" alt="Barba alinhada">
       </div>
-      <p class="demo-note">Imagens ilustrativas. Depois podem ser substituídas pelas fotos oficiais da barbearia.</p>
+      <a class="outline-btn" href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer">Ver mais fotos <span>→</span></a>
     </section>
 
-    <section class="location" id="localizacao">
-      <div class="location-copy"><p>Localização</p><h2>Barbearia do Vini</h2><strong>R. Tomaz Domingos da Silveira, 196<br>São Sebastião, Palhoça - SC</strong><a href="https://maps.app.goo.gl/rpTWc2T2RkhYW5aT9?g_st=ic" target="_blank" rel="noreferrer">Abrir no Google Maps →</a></div>
-      <div class="schedule"><p>Horários</p><div><span>Segunda a sexta</span><b>09h — 19h</b></div><div><span>Sábado</span><b>08h — 15h</b></div><button class="book" data-open-booking>Agendar horário</button></div>
+    <section class="section about" id="sobre">
+      <div class="section-title"><h2>Sobre <em>nós</em></h2></div>
+      <p class="about-copy">Um espaço pensado para quem busca mais do que um corte: estilo, cuidado e atendimento de qualidade em um ambiente moderno e acolhedor.</p>
+      <div class="features"><div><span>♕</span><p>Atendimento<br>personalizado</p></div><div><span>✂</span><p>Profissionais<br>qualificados</p></div><div><span>☆</span><p>Ambiente<br>moderno</p></div></div>
+      <div class="cta-card"><h3>Pronto para renovar<br>o seu visual?</h3><p>Agende agora e garanta seu horário.</p><button class="primary" data-open-booking>◉ Agendar pelo WhatsApp <span>→</span></button></div>
     </section>
 
-    <section class="final-cta"><p>PRONTO PARA MUDAR O VISUAL?</p><h2>Seu horário.<br><em>Seu estilo.</em></h2><button class="book dark-btn" data-open-booking>Quero agendar</button></section>
+    <section class="section location" id="localizacao">
+      <div class="section-title"><h2>Localização</h2><p>Estamos prontos para te receber.</p></div>
+      <div class="map-card"><div class="pin">●</div><h3>Barbearia D'Vini</h3><p>R. Tomaz Domingos da Silveira, 196<br>São Sebastião, Palhoça - SC<br>88136-000</p></div>
+      <a class="outline-btn" href="https://maps.app.goo.gl/rpTWc2T2RkhYW5aT9?g_st=ic" target="_blank" rel="noreferrer">⌖ Ver no Google Maps <span>→</span></a>
+      <h3 class="hours-title">Horários de Atendimento</h3>
+      <div class="hours-card"><div><span>Segunda - Sexta</span><strong>09h às 19h</strong></div><div><span>Sábado</span><strong>08h às 15h</strong></div><div><span>Domingo</span><strong>Fechado</strong></div></div>
+      <div class="wa-card"><div><h3>Dúvidas ou quer agendar<br>pelo WhatsApp?</h3><p>Fale conosco agora mesmo.</p></div><button data-open-booking aria-label="Agendar pelo WhatsApp">◉</button></div>
+    </section>
   </main>
 
-  <footer><div class="brand"><small>BARBEARIA D'</small><strong>Vini</strong></div><a href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer">@barbeariad.vini</a><span>© 2026</span></footer>
+  <footer>
+    <div class="footer-logo"><small>BARBEARIA D'</small><strong>Vini</strong></div>
+    <p>Estilo, cuidado e mais confiança para o seu dia.</p>
+    <div class="social"><a href="https://www.instagram.com/barbeariad.vini" target="_blank" rel="noreferrer">◎</a><span>♪</span></div>
+    <hr><p class="copy">© 2026 Barbearia D'Vini<br>Todos os direitos reservados.</p>
+  </footer>
 
-  <div class="modal" id="booking" aria-hidden="true"><div class="dialog"><button class="close" id="close" aria-label="Fechar">×</button><p class="eyebrow">AGENDAMENTO</p><h2>Como você prefere agendar?</h2><div class="booking-options"><button><strong>WhatsApp</strong><small>Contato direto e rápido</small></button><button><strong>Agenda online</strong><small>Escolha serviço, data e horário</small></button></div><p class="demo-note">Demonstração visual. A integração final é definida após aprovação.</p></div></div>
+  <div class="modal" id="booking" aria-hidden="true"><div class="dialog"><button class="close" id="close">×</button><p class="mini">AGENDAMENTO</p><h2>Como deseja agendar?</h2><button class="choice">WhatsApp <span>→</span></button><button class="choice">Agenda online <span>→</span></button><small>Opções demonstrativas para apresentação do projeto.</small></div></div>
   <script src="script.js"></script>
 </body>
 </html>
