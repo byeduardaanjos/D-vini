@@ -1,0 +1,12 @@
+:root{--glass-bg:rgba(10,10,10,.48);--glass-line:rgba(255,255,255,.10);--glass-shadow:0 18px 50px rgba(0,0,0,.28)}
+.topbar{background:var(--glass-bg)!important;backdrop-filter:blur(24px) saturate(130%)!important;-webkit-backdrop-filter:blur(24px) saturate(130%)!important;border-bottom:1px solid var(--glass-line)!important;box-shadow:var(--glass-shadow)!important}
+.brand-image{display:flex!important;align-items:center!important;justify-content:flex-start!important;background:transparent!important;border:0!important;overflow:visible!important}
+.brand-logo{height:48px!important;width:auto!important;max-width:132px!important;object-fit:contain!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;filter:drop-shadow(0 4px 14px rgba(0,0,0,.28))}
+.footer-logo-image{height:40px!important;max-width:120px!important}
+.plan-top>svg,.plan-top>i{display:none!important}
+.plan-top{justify-content:flex-start!important}
+.plan-card{border-radius:26px!important;background:linear-gradient(180deg,rgba(18,18,18,.96),rgba(12,12,12,.96))!important;border:1px solid rgba(255,255,255,.07)!important;box-shadow:0 20px 60px rgba(0,0,0,.24)!important}
+.plan-card.featured{border-color:rgba(217,187,122,.24)!important}
+.plan-btn{border-radius:999px!important;border-color:rgba(217,187,122,.28)!important;background:rgba(217,187,122,.045)!important}
+.menu-btn{background:rgba(255,255,255,.035)!important;border:1px solid rgba(255,255,255,.11)!important;backdrop-filter:blur(14px)!important;-webkit-backdrop-filter:blur(14px)!important}
+@media(max-width:859px){.topbar{height:74px!important;padding:0 18px!important}.brand-logo{height:44px!important;max-width:118px!important}.topbar nav{background:rgba(10,10,10,.82)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important;border-bottom:1px solid rgba(255,255,255,.08)!important}}
