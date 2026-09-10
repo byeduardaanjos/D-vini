@@ -39,7 +39,16 @@
 
       <div class="step">
         <div class="step-title"><span>02</span><div><small>DATA</small><h2>Escolha o dia</h2></div></div>
-        <input class="date-field" id="booking-date" type="date" />
+        <div class="calendar" id="calendar" aria-label="Calendário de agendamento">
+          <div class="calendar-head">
+            <button type="button" id="prev-month" aria-label="Mês anterior"><i data-lucide="chevron-left"></i></button>
+            <strong id="calendar-title"></strong>
+            <button type="button" id="next-month" aria-label="Próximo mês"><i data-lucide="chevron-right"></i></button>
+          </div>
+          <div class="weekdays"><span>DOM</span><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span></div>
+          <div class="calendar-grid" id="calendar-grid"></div>
+          <div class="calendar-legend"><span><i></i>Disponível</span><span><i></i>Selecionado</span></div>
+        </div>
       </div>
 
       <div class="step">
@@ -54,7 +63,8 @@
         <span class="summary-price" id="summary-price">R$ 40</span>
       </div>
 
-      <button id="confirm-booking" class="confirm-btn"><i data-lucide="check-circle-2"></i><span>Confirmar agendamento</span></button>
+      <button id="confirm-booking" class="confirm-btn" disabled><i data-lucide="check-circle-2"></i><span>Confirmar agendamento</span></button>
+      <p id="fill-hint" class="fill-hint">Escolha uma data e um horário para liberar a confirmação.</p>
       <div id="success-message" class="success-message" hidden>
         <i data-lucide="circle-check-big"></i>
         <div><strong>Agendamento feito com sucesso!</strong><span>Esta é uma confirmação demonstrativa para apresentação do site.</span></div>
@@ -67,35 +77,113 @@
   <script>
     document.addEventListener('DOMContentLoaded',()=>{
       if(window.lucide) lucide.createIcons();
-      let service='Corte tradicional', price='R$ 40', time='';
+
+      let service='Corte tradicional';
+      let price='R$ 40';
+      let time='';
+      let selectedDate=null;
+      const today=new Date(); today.setHours(0,0,0,0);
+      let viewDate=new Date(today.getFullYear(),today.getMonth(),1);
+
       const serviceText=document.getElementById('summary-service');
       const priceText=document.getElementById('summary-price');
       const dateText=document.getElementById('summary-date');
       const timeText=document.getElementById('summary-time');
-      const dateInput=document.getElementById('booking-date');
       const successMessage=document.getElementById('success-message');
       const confirmButton=document.getElementById('confirm-booking');
-      const today=new Date(); today.setDate(today.getDate()+1); dateInput.min=today.toISOString().split('T')[0];
+      const fillHint=document.getElementById('fill-hint');
+      const calendarGrid=document.getElementById('calendar-grid');
+      const calendarTitle=document.getElementById('calendar-title');
+
+      const formatDate=(date)=>date.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'});
+      const sameDay=(a,b)=>a&&b&&a.getFullYear()===b.getFullYear()&&a.getMonth()===b.getMonth()&&a.getDate()===b.getDate();
+
       const refresh=()=>{
-        const date=dateInput.value ? new Date(dateInput.value+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'}) : 'Escolha a data';
-        serviceText.textContent=service; priceText.textContent=price; dateText.textContent=date; timeText.textContent=time||'Escolha o horário';
+        serviceText.textContent=service;
+        priceText.textContent=price;
+        dateText.textContent=selectedDate?formatDate(selectedDate):'Escolha a data';
+        timeText.textContent=time||'Escolha o horário';
+        const complete=Boolean(service&&selectedDate&&time);
+        confirmButton.disabled=!complete;
+        fillHint.hidden=complete;
+        if(!complete) successMessage.hidden=true;
       };
-      document.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.option').forEach(x=>x.classList.remove('active'));btn.classList.add('active');service=btn.dataset.service;price=btn.dataset.price;successMessage.hidden=true;refresh()}));
-      document.querySelectorAll('[data-time]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-time]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');time=btn.dataset.time;successMessage.hidden=true;refresh()}));
-      dateInput.addEventListener('change',()=>{successMessage.hidden=true;refresh()});
-      confirmButton.addEventListener('click',()=>{
-        successMessage.hidden=false;
-        if(!dateInput.value || !time){
-          successMessage.classList.add('warning');
-          successMessage.querySelector('strong').textContent='Complete o agendamento';
-          successMessage.querySelector('span').textContent='Escolha uma data e um horário para concluir a demonstração.';
-        }else{
-          successMessage.classList.remove('warning');
-          successMessage.querySelector('strong').textContent='Agendamento feito com sucesso!';
-          successMessage.querySelector('span').textContent='Esta é uma confirmação demonstrativa para apresentação do site.';
-          successMessage.scrollIntoView({behavior:'smooth',block:'nearest'});
+
+      const renderCalendar=()=>{
+        calendarTitle.textContent=viewDate.toLocaleDateString('pt-BR',{month:'long',year:'numeric'});
+        calendarTitle.textContent=calendarTitle.textContent.charAt(0).toUpperCase()+calendarTitle.textContent.slice(1);
+        calendarGrid.innerHTML='';
+
+        const year=viewDate.getFullYear(), month=viewDate.getMonth();
+        const firstDay=new Date(year,month,1).getDay();
+        const daysInMonth=new Date(year,month+1,0).getDate();
+
+        for(let i=0;i<firstDay;i++){
+          const spacer=document.createElement('span');
+          spacer.className='calendar-empty';
+          calendarGrid.appendChild(spacer);
         }
+
+        for(let day=1;day<=daysInMonth;day++){
+          const date=new Date(year,month,day);
+          const btn=document.createElement('button');
+          btn.type='button';
+          btn.textContent=day;
+          btn.className='calendar-day';
+          const isPast=date<today;
+          const isSunday=date.getDay()===0;
+          if(isPast||isSunday){
+            btn.disabled=true;
+            btn.classList.add('unavailable');
+          }else{
+            btn.classList.add('available');
+          }
+          if(sameDay(date,today)) btn.classList.add('today');
+          if(sameDay(date,selectedDate)) btn.classList.add('selected');
+          btn.addEventListener('click',()=>{
+            selectedDate=date;
+            successMessage.hidden=true;
+            renderCalendar();
+            refresh();
+          });
+          calendarGrid.appendChild(btn);
+        }
+        if(window.lucide) lucide.createIcons();
+      };
+
+      document.getElementById('prev-month').addEventListener('click',()=>{
+        const prev=new Date(viewDate.getFullYear(),viewDate.getMonth()-1,1);
+        const currentMonth=new Date(today.getFullYear(),today.getMonth(),1);
+        if(prev>=currentMonth){viewDate=prev;renderCalendar();}
       });
+      document.getElementById('next-month').addEventListener('click',()=>{viewDate=new Date(viewDate.getFullYear(),viewDate.getMonth()+1,1);renderCalendar();});
+
+      document.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>{
+        document.querySelectorAll('.option').forEach(x=>x.classList.remove('active'));
+        btn.classList.add('active');
+        service=btn.dataset.service;
+        price=btn.dataset.price;
+        successMessage.hidden=true;
+        refresh();
+      }));
+
+      document.querySelectorAll('[data-time]').forEach(btn=>btn.addEventListener('click',()=>{
+        document.querySelectorAll('[data-time]').forEach(x=>x.classList.remove('active'));
+        btn.classList.add('active');
+        time=btn.dataset.time;
+        successMessage.hidden=true;
+        refresh();
+      }));
+
+      confirmButton.addEventListener('click',()=>{
+        if(confirmButton.disabled||!service||!selectedDate||!time) return;
+        successMessage.hidden=false;
+        successMessage.querySelector('strong').textContent='Agendamento feito com sucesso!';
+        successMessage.querySelector('span').textContent=`${service} • ${formatDate(selectedDate)} • ${time}. Esta confirmação é apenas demonstrativa.`;
+        successMessage.scrollIntoView({behavior:'smooth',block:'nearest'});
+      });
+
+      renderCalendar();
       refresh();
     });
   </script>
