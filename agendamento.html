@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0a0a0a" />
   <meta name="robots" content="noindex,nofollow" />
   <title>Agendamento | Barbearia D'Vini</title>
-  <link rel="icon" href="assets/logo-vini-oficial.png" />
+  <link rel="icon" href="assets/logo-vini-oficial.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 <body>
   <header class="booking-header">
     <a class="back" href="index.html"><i data-lucide="arrow-left"></i><span>Voltar</span></a>
-    <a class="booking-brand" href="index.html" aria-label="Barbearia D'Vini"><img src="assets/logo-vini-oficial.png" alt="Logo Barbearia D'Vini"></a>
+    <a class="booking-brand" href="index.html" aria-label="Barbearia D'Vini"><img src="assets/logo-vini-oficial.webp" alt="Logo Barbearia D'Vini"></a>
     <span class="demo-pill">DEMO</span>
   </header>
 
@@ -53,7 +53,13 @@
         <div><small>PRÉVIA DO AGENDAMENTO</small><strong id="summary-service">Corte tradicional</strong><span id="summary-date">Escolha a data</span><span id="summary-time">Escolha o horário</span></div>
         <span class="summary-price" id="summary-price">R$ 40</span>
       </div>
-      <p class="demo-note">Demonstração visual somente. Nenhum agendamento é enviado ou confirmado nesta página.</p>
+
+      <button id="confirm-booking" class="confirm-btn"><i data-lucide="check-circle-2"></i><span>Confirmar agendamento</span></button>
+      <div id="success-message" class="success-message" hidden>
+        <i data-lucide="circle-check-big"></i>
+        <div><strong>Agendamento feito com sucesso!</strong><span>Esta é uma confirmação demonstrativa para apresentação do site.</span></div>
+      </div>
+      <p class="demo-note">Demonstração visual somente. Nenhum agendamento real é enviado ou confirmado nesta página.</p>
     </section>
   </main>
 
@@ -67,14 +73,30 @@
       const dateText=document.getElementById('summary-date');
       const timeText=document.getElementById('summary-time');
       const dateInput=document.getElementById('booking-date');
+      const successMessage=document.getElementById('success-message');
+      const confirmButton=document.getElementById('confirm-booking');
       const today=new Date(); today.setDate(today.getDate()+1); dateInput.min=today.toISOString().split('T')[0];
       const refresh=()=>{
         const date=dateInput.value ? new Date(dateInput.value+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'}) : 'Escolha a data';
         serviceText.textContent=service; priceText.textContent=price; dateText.textContent=date; timeText.textContent=time||'Escolha o horário';
       };
-      document.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.option').forEach(x=>x.classList.remove('active'));btn.classList.add('active');service=btn.dataset.service;price=btn.dataset.price;refresh()}));
-      document.querySelectorAll('[data-time]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-time]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');time=btn.dataset.time;refresh()}));
-      dateInput.addEventListener('change',refresh); refresh();
+      document.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.option').forEach(x=>x.classList.remove('active'));btn.classList.add('active');service=btn.dataset.service;price=btn.dataset.price;successMessage.hidden=true;refresh()}));
+      document.querySelectorAll('[data-time]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('[data-time]').forEach(x=>x.classList.remove('active'));btn.classList.add('active');time=btn.dataset.time;successMessage.hidden=true;refresh()}));
+      dateInput.addEventListener('change',()=>{successMessage.hidden=true;refresh()});
+      confirmButton.addEventListener('click',()=>{
+        successMessage.hidden=false;
+        if(!dateInput.value || !time){
+          successMessage.classList.add('warning');
+          successMessage.querySelector('strong').textContent='Complete o agendamento';
+          successMessage.querySelector('span').textContent='Escolha uma data e um horário para concluir a demonstração.';
+        }else{
+          successMessage.classList.remove('warning');
+          successMessage.querySelector('strong').textContent='Agendamento feito com sucesso!';
+          successMessage.querySelector('span').textContent='Esta é uma confirmação demonstrativa para apresentação do site.';
+          successMessage.scrollIntoView({behavior:'smooth',block:'nearest'});
+        }
+      });
+      refresh();
     });
   </script>
 </body>
